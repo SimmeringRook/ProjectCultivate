@@ -6,37 +6,35 @@ using System.Threading.Tasks;
 
 namespace Cultivate_Recipes
 {
-    public class Ingredient
+    public class Ingredient : Cultivate_Entities.Ingredient
     {
-        /* I should contain information about the Ingredient:
-         *      -Name (? - see consideration below)
-         *      -Amount
-         *      -Measurement Unit
-         *      
-         *
-         *  Something to consider:
-         *      Should "Ingredient" be a separate entity from what is tracked in the 
-         *      inventory?
-         *      
-         *      If it is:
-         *          Then the Ingredient object will need a reference to the item
-         *      
-         *      
-         *      If it is not:
-         *          Then the Recipe would need to contain the amounts and 
-         *          corresponding measurements for the ingredient; as the Ingredient
-         *          object itself would be responsible for tracking the current amount
-         *          stored in the pantry/fridge.
-         *          
-         *          NOTE:
-         *          This seems to be the messy approach, as it forces inventory management
-         *          to be dependent on the Ingredient object; which (ingredients) do not 
-         *          effect the quantities stored. Any planned meals should be doing a direct
-         *          handshake with the inventory to update changes in the stored amount.
-         *          
-         *          Recipes and Ingredients should be a tool utilized by meal planning to
-         *          calculate amounts and items needed to facilitate the planned meals.
-         *          
-         */
+        public override string GetName()
+        {
+            return this.Name;
+        }
+
+        public override bool AttemptSetName(string proposedName)
+        {
+            //TODO: Validate proposedName
+            //TODO: check if name is currently used
+
+            //Does this matter as much for an Ingredient as it does a Recipe?
+            //Or am I just checking to see if this "Ingredient" already exists, with
+            //Respect to the current recipe?
+            throw new NotImplementedException();
+        }
+
+        public override double GetAmount()
+        {
+            return this.Amount;
+        }
+
+        public override bool AttemptSetAmount(double proposedAmount)
+        {
+            //TODO: Validate proposedAmount
+            throw new NotImplementedException();
+        }
+
+        
     }
 }

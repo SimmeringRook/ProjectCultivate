@@ -4,33 +4,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Cultivate_Entities;
+
 namespace Cultivate_Recipes
 {
-    public class Recipe
+    public class Recipe : Cultivate_Entities.Recipe
     {
-        /*  I should contain information about the Recipe:
-         *      -Name
-         *      -Ingredients (A collection of references)
-         *      -Number Of Servings Provided
-         *      -Instructions
-         *      -
-         * 
-         *  Something to consider:
-         *      Should the Recipe be responisible for varieties? Or have a Parent object that tracks
-         *      varriations of similar recipes?
-         *      
-         *      Example:
-         *          Taco 'Family'
-         *              - Tacos (My varriation)
-         *              - Tacos (Mother's varraition)
-         *              
-         *              Both require a lot of the same base ingredients, but differ by the inclusion 
-         *              or exclusion of one or a few ingredients.
-         *              
-         *              My varriation adds bananna peppers.
-         *              My mother's varriation does not include peppers, but adds cut lettuce.
-         *          
-         *          Also, what about Chicken instead of ground beef? etc
-         */ 
+        /// <summary>
+        /// I should contain the business logic for Recipe.
+        /// 
+        /// This means I should be the one who validates data, eg:
+        /// Does the user's input for the "Name" statisfiy the naming requirements?
+        /// </summary>
+
+        public override string GetName()
+        {
+            return this.Name;
+        }
+
+        public override bool AttemptSetName(string proposedName)
+        {
+            /* At the very least, I should call the relevant function from
+             * Cultivate_Utilities to validate the string
+             * 
+             * Should this also involve a call to the Repository to see if 
+             * the name is already enuse? and Prevent duplicate records here?
+             */ 
+            return base.AttemptSetName(proposedName);
+        }
+
+        public override List<Cultivate_Entities.Ingredient> GetListOfIngredients()
+        {
+            //This list should be using the subclass of Cultivate_Recipes.Ingredients
+            //not Cultivate_Entities.Ingredients
+
+            //TODO:: Convert List<Cultivate_Entities.Ingredients> to List<Cultivate_Recipes.Ingredients>
+            return Ingredients.ToList();
+        }
+
+        public override bool AttemptUpdateToIngredientList(List<Cultivate_Entities.Ingredient> proposedChangedIngredientList)
+        {
+            //TODO: Compare differences between proposedChangedIngredientList and Ingredients
+            //Remove, Add, or Update as necessary
+
+            //If no changes, return true?
+            //If a change could not be done - false
+            //  But what change would fail?
+            throw new NotImplementedException();
+        }
     }
 }

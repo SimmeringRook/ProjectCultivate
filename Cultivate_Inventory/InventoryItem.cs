@@ -6,24 +6,31 @@ using System.Threading.Tasks;
 
 namespace Cultivate_Inventory
 {
-    public class InventoryItem
+    public class InventoryItem : Cultivate_Entities.InventoryItem
     {
-        /* I should contain infomartion regarding what is currently in stock for each Ingredient:
-         *      -Name
-         *      -Amount
-         *      -Measurement
-         *      
-         * Consideration:
-         *      Should items stored in the pantry vs fridge vs freezer be separated by a property?
-         *      Or should they be all be children of Inventory Item?
-         *      
-         *      Would there be any behavioural differences for these children? Or properties that
-         *      apply to one category that are not relevant to the other(s)?
-         * 
-         * 
-         * 
-         * 
-         * 
-         */
+        public override string GetName()
+        {
+            return this.Name;
+        }
+
+        public override bool AttemptSetName(string proposedName)
+        {
+            //TODO: Validate proposedName
+            //TODO: check if name is currently used
+
+            throw new NotImplementedException();
+        }
+
+        public override double GetAmount()
+        {
+            return this.Amount;
+        }
+
+        public override bool AttemptSetAmount(double proposedAmount)
+        {
+            //TODO: Validate proposedAmount
+            throw new NotImplementedException();
+        }
+
     }
 }
