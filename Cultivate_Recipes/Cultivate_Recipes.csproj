@@ -44,5 +44,11 @@
     <Compile Include="Recipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cultivate_Entities\Cultivate_Entities.csproj">
+      <Project>{2c1466d2-6bc8-46a9-966c-264bf62b268e}</Project>
+      <Name>Cultivate_Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0F6D1863-E9C3-423B-A145-5A53B7BA8880}</ProjectGuid>
+    <ProjectGuid>{B040A6CB-62C9-4F9C-8869-9DC0040E1B79}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cultivate_Inventory</RootNamespace>
-    <AssemblyName>Cultivate_Inventory</AssemblyName>
+    <RootNamespace>Cultivate_Services</RootNamespace>
+    <AssemblyName>Cultivate_Services</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,14 +40,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InventoryItem.cs" />
+    <Compile Include="IngredientServices\IIngredientService.cs" />
+    <Compile Include="IngredientServices\IngredientService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecipeFamilyServices\IRecipeFamilyService.cs" />
+    <Compile Include="RecipeServices\IRecipeService.cs" />
+    <Compile Include="RecipeFamilyServices\RecipeFamilyService.cs" />
+    <Compile Include="RecipeServices\RecipeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cultivate_Entities\Cultivate_Entities.csproj">
-      <Project>{2c1466d2-6bc8-46a9-966c-264bf62b268e}</Project>
+      <Project>{2C1466D2-6BC8-46A9-966C-264BF62B268E}</Project>
       <Name>Cultivate_Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Cultivate_Repositories\Cultivate_Repositories.csproj">
+      <Project>{1367fc99-e3ff-4ea5-9828-d8baf04ee14d}</Project>
+      <Name>Cultivate_Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

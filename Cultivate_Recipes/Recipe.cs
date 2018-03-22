@@ -17,40 +17,42 @@ namespace Cultivate_Recipes
         /// Does the user's input for the "Name" statisfiy the naming requirements?
         /// </summary>
 
-        public override string GetName()
-        {
-            return this.Name;
-        }
+        //TODO: Find the place where this all belongs
 
-        public override bool AttemptSetName(string proposedName)
-        {
-            /* At the very least, I should call the relevant function from
-             * Cultivate_Utilities to validate the string
-             * 
-             * Should this also involve a call to the Repository to see if 
-             * the name is already enuse? and Prevent duplicate records here?
-             */ 
-            return base.AttemptSetName(proposedName);
-        }
+        //public override string GetName()
+        //{
+        //    return this.Name;
+        //}
 
-        public override List<Cultivate_Entities.Ingredient> GetListOfIngredients()
-        {
-            //This list should be using the subclass of Cultivate_Recipes.Ingredients
-            //not Cultivate_Entities.Ingredients
+        //public override bool AttemptSetName(string proposedName)
+        //{
+        //    /* At the very least, I should call the relevant function from
+        //     * Cultivate_Utilities to validate the string
+        //     * 
+        //     * Should this also involve a call to the Repository to see if 
+        //     * the name is already enuse? and Prevent duplicate records here?
+        //     */ 
+        //    return base.AttemptSetName(proposedName);
+        //}
 
-            //TODO:: Convert List<Cultivate_Entities.Ingredients> to List<Cultivate_Recipes.Ingredients>
-            return Ingredients.ToList();
-        }
+        //public override List<Cultivate_Entities.Ingredient> GetListOfIngredients()
+        //{
+        //    //This list should be using the subclass of Cultivate_Recipes.Ingredients
+        //    //not Cultivate_Entities.Ingredients
 
-        public override bool AttemptUpdateToIngredientList(List<Cultivate_Entities.Ingredient> proposedChangedIngredientList)
-        {
-            //TODO: Compare differences between proposedChangedIngredientList and Ingredients
-            //Remove, Add, or Update as necessary
+        //    //TODO:: Convert List<Cultivate_Entities.Ingredients> to List<Cultivate_Recipes.Ingredients>
+        //    return Ingredients.ToList();
+        //}
 
-            //If no changes, return true?
-            //If a change could not be done - false
-            //  But what change would fail?
-            throw new NotImplementedException();
-        }
+        //public override bool AttemptUpdateToIngredientList(List<Cultivate_Entities.Ingredient> proposedChangedIngredientList)
+        //{
+        //    //TODO: Compare differences between proposedChangedIngredientList and Ingredients
+        //    //Remove, Add, or Update as necessary
+
+        //    //If no changes, return true?
+        //    //If a change could not be done - false
+        //    //  But what change would fail?
+        //    throw new NotImplementedException();
+        //}
     }
 }

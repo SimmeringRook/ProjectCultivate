@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Cultivate_Entities
+﻿namespace Cultivate_Entities
 {
     public class Ingredient : InventoryItem
     {
@@ -13,7 +7,7 @@ namespace Cultivate_Entities
          *      -Amount
          *      -Measurement Unit
          */
-
+        public virtual Recipe Recipe { get; set; }
         /*  Something to consider:
         *      Should "Ingredient" be a separate entity from what is tracked in the 
         *      inventory?
@@ -21,6 +15,7 @@ namespace Cultivate_Entities
         *      If it is:
         *          Then the Ingredient object will need a reference to the item
         *      
+        *      public virtual InventoryItem InventoryItem { get; set; }
         *      
         *      If it is not:
         *          Then the Recipe would need to contain the amounts and 
