@@ -19,9 +19,19 @@ namespace Cultivate_Services.RecipeServices
             this.ingredientService = ingredientService;
         }
 
-        public IEnumerable<Recipe> GetAllRecipes()
+        public IEnumerable<Recipe> GetAll()
         {
-            return recipeRepository.GetAll();
+            var allRecipes = recipeRepository.GetAll();
+
+            foreach (var recipe in allRecipes)
+            {
+                var ingredients = ingredientService.GetIngredientsForRecipe(recipe.Id).ToList();
+                if (ingredients == null || ingredients[0] == null)
+                    ingredients = new List<Ingredient>();
+                recipe.Ingredients = ingredients;
+            }
+
+            return allRecipes;
         }
 
         public IEnumerable<Recipe> GetRecipeFamily()
@@ -31,7 +41,9 @@ namespace Cultivate_Services.RecipeServices
 
         public Recipe Get(long recipeId)
         {
-            return recipeRepository.Get(recipeId);
+            var tempRecipe = recipeRepository.Get(recipeId);
+            tempRecipe.Ingredients = ingredientService.GetIngredientsForRecipe(recipeId).ToList();
+            return tempRecipe;
         }
 
         public void Insert(Recipe newRecipe)
@@ -44,26 +56,17 @@ namespace Cultivate_Services.RecipeServices
             recipeRepository.Update(changedRecipe);
         }
 
+        /// <summary>
+        /// Deleting the recipe will also remove any assocated ingredients from the database.
+        /// </summary>
+        /// <param name="recipeId"></param>
         public void Delete(long recipeId)
         {
             Recipe recipe = Get(recipeId);
 
-            IEnumerable<long> ingredientIDs = ingredientService.GetIngredientsForRecipe(recipe.Id).Select(i => i.Id);
-
-            foreach (long id in ingredientIDs)
-            {
-                //Let the Ingredient Service deal with removing all information for the ingredients
-                ingredientService.Delete(id);
-            }
-
-            //At this point, no child objects/data remain that are associated with recipe
-
             recipeRepository.Remove(recipe);
             recipeRepository.SaveChanges();
 
-            //null out the references to completely remove the objects from memeory.
-
-            ingredientIDs = null;
             recipe = null;
         }
     }

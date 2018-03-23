@@ -5,7 +5,7 @@ namespace Cultivate_Services.RecipeServices
 {
     public interface IRecipeService
     {
-        IEnumerable<Recipe> GetAllRecipes();
+        IEnumerable<Recipe> GetAll();
         IEnumerable<Recipe> GetRecipeFamily();
         Recipe Get(long recipeId);
         void Insert(Recipe newRecipe);

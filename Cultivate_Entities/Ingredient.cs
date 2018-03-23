@@ -8,6 +8,7 @@
          *      -Measurement Unit
          */
         public virtual Recipe Recipe { get; set; }
+        public long RecipeID { get; set; }
         /*  Something to consider:
         *      Should "Ingredient" be a separate entity from what is tracked in the 
         *      inventory?

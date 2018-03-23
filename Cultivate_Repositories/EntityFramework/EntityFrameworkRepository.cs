@@ -1,22 +1,23 @@
 ﻿using Cultivate_Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 
 namespace Cultivate_Repositories.EntityFramework
 {
     public class EntityFrameworkRepository<T> : IEntityFrameworkRepository<T> where T : BaseEntity
     {
-        private readonly DbContext context;
+        private readonly ApplicationContext context;
         private DbSet<T> entities;
         string errorMessage = string.Empty;
 
-        public EntityFrameworkRepository(DbContext context)
+        public EntityFrameworkRepository(ApplicationContext context)
         {
             this.context = context;
             entities = context.Set<T>();
         }
+
         public IEnumerable<T> GetAll()
         {
             return entities.AsEnumerable();
@@ -26,6 +27,7 @@ namespace Cultivate_Repositories.EntityFramework
         {
             return entities.SingleOrDefault(s => s.Id == id);
         }
+
         public void Insert(T entity)
         {
             if (entity == null)

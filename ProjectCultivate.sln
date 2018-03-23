@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cultivate_Repositories", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cultivate_Services", "Cultivate_Services\Cultivate_Services.csproj", "{B040A6CB-62C9-4F9C-8869-9DC0040E1B79}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cultivate_Services_Test", "Cultivate_Services_Test\Cultivate_Services_Test.csproj", "{6ED6D2C3-546E-44A3-8ACC-49D5753041D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B040A6CB-62C9-4F9C-8869-9DC0040E1B79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B040A6CB-62C9-4F9C-8869-9DC0040E1B79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B040A6CB-62C9-4F9C-8869-9DC0040E1B79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ED6D2C3-546E-44A3-8ACC-49D5753041D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ED6D2C3-546E-44A3-8ACC-49D5753041D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ED6D2C3-546E-44A3-8ACC-49D5753041D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ED6D2C3-546E-44A3-8ACC-49D5753041D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

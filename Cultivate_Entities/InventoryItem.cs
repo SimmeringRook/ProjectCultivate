@@ -11,7 +11,7 @@ namespace Cultivate_Entities
          */
         public string Name { get; set; }
         public double Amount { get; set; }
-        public Tuple<string, string> Measurement { get; set; }
+        public string Measurement { get; set; }
         
         /* Consideration:
          *      Should items stored in the pantry vs fridge vs freezer be separated by a property?

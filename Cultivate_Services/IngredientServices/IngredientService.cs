@@ -21,7 +21,10 @@ namespace Cultivate_Services.IngredientSerivces
         
         public IEnumerable<Ingredient> GetIngredientsForRecipe(long recipeId)
         {
-            return ingredientRepository.GetAll().Where(ingredient => ingredient.Recipe.Id == recipeId);
+            return ingredientRepository
+                .GetAll()
+                .Where(ingredient => ingredient.Recipe.Id == recipeId)
+                .DefaultIfEmpty();
         }
 
         public Ingredient Get(long id)

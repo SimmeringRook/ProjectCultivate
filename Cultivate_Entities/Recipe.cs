@@ -11,9 +11,13 @@ namespace Cultivate_Entities
          *      -Instructions
          */
         public string Name { get; set; }
-        public int BaseNumberOfServings { get; set; }
-        public IEnumerable<Ingredient> Ingredients { get; set; }
-        public IEnumerable<string> Instructions { get; set; }
+        public double BaseNumberOfServings { get; set; }
+        public List<Ingredient> Ingredients { get; set; }
+        public string Instructions { get; set; }
 
+        public Recipe()
+        {
+            Ingredients = new List<Ingredient>();
+        }
     }
 }
